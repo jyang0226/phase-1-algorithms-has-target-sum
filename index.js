@@ -1,5 +1,18 @@
-function hasTargetSum(array, target) {
+ // Write your algorithm here
+ function hasTargetSum(array, target) {
   // Write your algorithm here
+
+  const testedNumbers = new Set();
+
+  for (let i = 0; i < array.length; i++) {
+    const complement = target - array[i];
+    if (testedNumbers.has(complement)) {
+      return true;
+    }
+    testedNumbers.add(array[i]);
+  }
+
+  return false;
 }
 
 /* 
@@ -8,6 +21,12 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  hasTargetSum([3, 8, 12, 4, 11, 7], 10) 
+  need to iterate thru the array for each element
+  identify complementary numbers that helps reach target
+  if complementary numbers appear, return true
+  if nothing is complementary, return false
+  
 */
 
 /*
